@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- PRESET VALUES FOR DIMENSIONS -->
+
+<resources>
+    <dimen name="hour_size">
+        32dp
+    </dimen>
+
+    <dimen name="digital_text_size_round">
+        70dp
+    </dimen>
+
+    <dimen name="minute_size">
+        40dp
+    </dimen>
+
+</resources>

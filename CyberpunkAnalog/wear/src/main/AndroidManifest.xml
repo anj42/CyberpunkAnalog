@@ -1,0 +1,48 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.antoni.cyberpunkanalog">
+    <uses-sdk android:minSdkVersion="21"
+        android:maxSdkVersion="21" />
+
+    <!-- this makes the app available only on smartwatches -->
+    <uses-feature android:name="android.hardware.type.watch" />
+
+    <!-- required permissions -->
+    <uses-permission android:name="com.google.android.permission.PROVIDE_BACKGROUND" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+
+    <!-- the service inside is one of the applications compoments -->
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.DeviceDefault" >
+
+        <!-- service declaration -->
+        <service
+            android:name="com.example.antoni.cyberpunkanalog.CyberpunkAnalog"
+            android:allowEmbedded="true"
+            android:label="cyberpunk_analog"
+            android:taskAffinity=""
+            android:permission="android.permission.BIND_WALLPAPER" >
+
+            <!-- meta data section to specify things like the preview icons for the watch -->
+            <meta-data android:name="android.service.wallpaper"
+                android:resource="@xml/watch_face" />
+
+            <meta-data android:name="com.google.android.wearable.watchface.preview"
+                android:resource="@drawable/digital_preview" />
+
+            <meta-data android:name="com.google.android.wearable.watchface.preview_circular"
+                android:resource="@drawable/digital_preview" />
+
+
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+                <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>
